@@ -227,6 +227,8 @@ class MelodiusWindow(Window):
         # - Load Notifications ----------------------------------------------- #
         Notify.init("melodius")
         self.notification = Notify.Notification.new ("Melodius", "Ready to jam!", None)
+        self.notification.add_action("previous", "Previous Track", self.on_toolbutton_prev_clicked)
+        self.notification.add_action("next", "Next Track", self.on_toolbutton_next_clicked)
 
         # Load library
 
@@ -297,11 +299,11 @@ class MelodiusWindow(Window):
             self.load_selected_data()
             self.set_playback_state("playing")
 
-    def on_toolbutton_prev_clicked(self, widget):
+    def on_toolbutton_prev_clicked(self, widget, user_data = None):
         """Go to the previous song when the Previous button is clicked."""
         self.playlist_prev()
 
-    def on_toolbutton_next_clicked(self, widget):
+    def on_toolbutton_next_clicked(self, widget, user_data = None):
         """Go to the next song when the Next button is clicked."""
         self.playlist_next()
 
