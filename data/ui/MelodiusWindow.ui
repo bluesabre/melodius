@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 -->
 <interface>
-  <!-- interface-requires gtk+ 3.0 -->
-  <!-- interface-requires melodius_window 1.0 -->
+  <requires lib="gtk+" version="3.12"/>
+  <requires lib="melodius_window" version="1.0"/>
   <!-- interface-local-resource-path ../media -->
   <object class="GtkAdjustment" id="adjustment_timer">
     <property name="upper">100</property>
@@ -14,13 +15,11 @@
     <property name="can_focus">False</property>
     <signal name="hide" handler="on_appmenu_hide" swapped="no"/>
     <child>
-      <object class="GtkImageMenuItem" id="menuitem1">
-        <property name="label">gtk-preferences</property>
-        <property name="use_action_appearance">False</property>
+      <object class="GtkMenuItem" id="menuitem1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Preferences</property>
         <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
         <signal name="activate" handler="on_mnu_preferences_activate" swapped="no"/>
       </object>
     </child>
@@ -32,13 +31,11 @@
       </object>
     </child>
     <child>
-      <object class="GtkImageMenuItem" id="menuitem3">
-        <property name="label">gtk-about</property>
-        <property name="use_action_appearance">False</property>
+      <object class="GtkMenuItem" id="menuitem3">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">About</property>
         <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
         <signal name="activate" handler="on_mnu_about_activate" swapped="no"/>
       </object>
     </child>
@@ -50,15 +47,13 @@
       </object>
     </child>
     <child>
-      <object class="GtkImageMenuItem" id="menuitem5">
-        <property name="label">gtk-quit</property>
-        <property name="use_action_appearance">False</property>
+      <object class="GtkMenuItem" id="menuitem5">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Quit</property>
         <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
         <signal name="activate" handler="on_mnu_close_activate" swapped="no"/>
+        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
       </object>
     </child>
   </object>
@@ -87,12 +82,13 @@
     <property name="default_width">800</property>
     <property name="default_height">600</property>
     <property name="icon_name">audio-player</property>
-    <signal name="key-press-event" handler="on_melodius_window_key_press_event" swapped="no"/>
     <signal name="delete-event" handler="on_melodius_window_delete_event" swapped="no"/>
+    <signal name="key-press-event" handler="on_melodius_window_key_press_event" swapped="no"/>
     <child>
-      <object class="GtkVBox" id="vbox">
+      <object class="GtkBox" id="vbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkToolbar" id="toolbar">
             <property name="visible">True</property>
@@ -104,7 +100,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Previous</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">media-skip-backward-symbolic</property>
                 <signal name="clicked" handler="on_toolbutton_prev_clicked" swapped="no"/>
@@ -120,7 +115,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Play</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">media-playback-start-symbolic</property>
                 <signal name="clicked" handler="on_toolbutton_playpause_clicked" swapped="no"/>
@@ -136,7 +130,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Next</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">media-skip-forward-symbolic</property>
                 <signal name="clicked" handler="on_toolbutton_next_clicked" swapped="no"/>
@@ -151,15 +144,14 @@
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="use_action_appearance">False</property>
                 <child>
                   <object class="GtkBox" id="box_songinfo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="has_tooltip">True</property>
                     <property name="tooltip_text" translatable="yes">1</property>
-                    <property name="margin_left">12</property>
-                    <property name="margin_right">12</property>
+                    <property name="margin_start">12</property>
+                    <property name="margin_end">12</property>
                     <property name="spacing">6</property>
                     <child>
                       <object class="GtkImage" id="image_artwork">
@@ -210,7 +202,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="tooltip_text" translatable="yes">1 star</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="relief">none</property>
                                     <property name="focus_on_click">False</property>
                                     <child>
@@ -235,7 +226,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="tooltip_text" translatable="yes">2 stars</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="relief">none</property>
                                     <property name="focus_on_click">False</property>
                                     <child>
@@ -260,7 +250,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="tooltip_text" translatable="yes">3 stars</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="relief">none</property>
                                     <property name="focus_on_click">False</property>
                                     <child>
@@ -285,7 +274,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="tooltip_text" translatable="yes">4 stars</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="relief">none</property>
                                     <property name="focus_on_click">False</property>
                                     <child>
@@ -310,7 +298,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="tooltip_text" translatable="yes">5 stars</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="relief">none</property>
                                     <property name="focus_on_click">False</property>
                                     <child>
@@ -400,7 +387,7 @@
                         </child>
                       </object>
                       <packing>
-                        <property name="expand">False</property>
+                        <property name="expand">True</property>
                         <property name="fill">True</property>
                         <property name="position">1</property>
                       </packing>
@@ -419,7 +406,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Repeat</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">media-playlist-repeat-symbolic</property>
                 <signal name="toggled" handler="on_toolbutton_repeat_toggled" swapped="no"/>
@@ -435,7 +421,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Shuffle</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">media-playlist-shuffle-symbolic</property>
                 <signal name="toggled" handler="on_toolbutton_shuffle_toggled" swapped="no"/>
@@ -451,7 +436,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Settings</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">document-properties-symbolic</property>
                 <signal name="toggled" handler="on_toolbutton_appmenu_toggled" swapped="no"/>
@@ -499,7 +483,6 @@
                     <property name="can_focus">True</property>
                     <property name="has_focus">True</property>
                     <property name="model">liststore2</property>
-                    <property name="rules_hint">True</property>
                     <property name="enable_search">False</property>
                     <signal name="row-activated" handler="on_library_treeview_row_activated" swapped="no"/>
                     <child internal-child="selection">
