@@ -126,6 +126,7 @@ class MelodiusWindow(Window):
 
         self.prev_button = builder.get_object("toolbutton_prev")
         self.playpause_button = builder.get_object("toolbutton_playpause")
+        self.playpause_image = builder.get_object("toolbutton_playpause_image")
         self.next_button = builder.get_object("toolbutton_next")
 
         self.box_songinfo = builder.get_object("box_songinfo")
@@ -509,18 +510,18 @@ class MelodiusWindow(Window):
 
         Accepted values are 'playing', 'paused', and 'stopped'."""
         if state == "playing":
-            self.playpause_button.set_icon_name("media-playback-pause-symbolic")
+            self.playpause_image.set_from_icon_name("media-playback-pause-symbolic", 24)
             self.player.set_state(Gst.State.PLAYING)
             self.sound_menu.signal_playing()
             if self.timer_thread != -1:
                 GObject.source_remove(self.timer_thread)
             self.timer_thread = GObject.timeout_add(1000, self.update_timer)
         elif state == "paused":
-            self.playpause_button.set_icon_name("media-playback-start-symbolic")
+            self.playpause_image.set_from_icon_name("media-playback-start-symbolic", 24)
             self.player.set_state(Gst.State.PAUSED)
             self.sound_menu.signal_paused()
         elif state == "stopped":
-            self.playpause_button.set_icon_name("media-playback-start-symbolic")
+            self.playpause_image.set_from_icon_name("media-playback-start-symbolic", 24)
             self.player.set_state(Gst.State.NULL)
             self.sound_menu.signal_paused()
             self.timer_adjustment.set_value(0)
