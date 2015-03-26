@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="melodius">
+  <schema id="net.launchpad.melodius" path="/net/launchpad/melodius/">
+    <key name="folders" type="as">
+      <default>[]</default>
+      <summary>Music folders</summary>
+      <description>The list of music folder library paths.</description>
+    </key>
+    <key name="repeat" type="b">
+      <default>false</default>
+      <summary>Repeat Playlist</summary>
+      <description>Should the playlist repeat upon finishing?</description>
+    </key>
+    <key name="shuffle" type="b">
+      <default>false</default>
+      <summary>Shuffle Playlist</summary>
+      <description>Should the play order be non-sequential?</description>
+    </key>
+    <key name="show-notifications" type="b">
+      <default>true</default>
+      <summary>Show Notifications</summary>
+      <description>Show notifications when a song changes</description>
+    </key>
+    <key name="show-coverart" type="b">
+      <default>true</default>
+      <summary>Show Cover Art in Notifications</summary>
+      <description>Show cover art in notifications</description>
+    </key>
+    <key name="primary-message" type="s">
+      <default>"%s"</default>
+      <summary>Primary Notification Message</summary>
+      <description>The primary message displayed in notifications</description>
+    </key>
+    <key name="secondary-message" type="s">
+      <default>"by %a on %l"</default>
+      <summary>Secondary Notification Message</summary>
+      <description>The secondary message displayed in notifications</description>
+    </key>
+  </schema>
+</schemalist>

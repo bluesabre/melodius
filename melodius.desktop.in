@@ -1,0 +1,9 @@
+[Desktop Entry]
+_Name=Melodius
+_Comment=Melodius application
+Categories=GNOME;Audio;Music;Player;AudioVideo;
+Exec=melodius
+Icon=/usr/share/melodius/media/melodius.svg
+Terminal=false
+Type=Application
+MimeType=application/x-ogg;application/ogg;audio/x-vorbis+ogg;audio/x-scpls;audio/x-mp3;audio/x-mpeg;audio/mpeg;audio/x-mpegurl;audio/x-flac;
