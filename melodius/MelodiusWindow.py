@@ -226,6 +226,7 @@ class MelodiusWindow(Window):
 
         # - Load Notifications ----------------------------------------------- #
         Notify.init("melodius")
+        self.notification = Notify.Notification.new ("Melodius", "Ready to jam!", None)
 
         # Load library
 
@@ -242,6 +243,8 @@ class MelodiusWindow(Window):
         path = Gtk.TreePath.new_from_string( str( 0 ) )
         self.library_treeview.set_cursor(path)
         self.load_selected_data()
+
+        self.load_start = False
 
     def update_library(self, widget=None, data=None):
         model = self.library_treeview.get_model().get_model()
@@ -345,10 +348,12 @@ class MelodiusWindow(Window):
 
     def on_library_treeview_row_activated(self, widget, event, user_data):
         """When a library row is activated, play the selected song."""
-        self.set_playback_state("stopped")
-        self.load_selected_data(True)
-        self.set_playback_state("playing")
-        self.now_playing += 1
+        self.load_start = not self.load_start
+        if self.load_start:
+            self.set_playback_state("stopped")
+            self.load_selected_data(True)
+            self.set_playback_state("playing")
+            self.now_playing += 1
 
     def get_selected_data(self):
         """Return a dictionary of data collected from the currently selected row."""
@@ -553,13 +558,13 @@ class MelodiusWindow(Window):
             if self.settings["show-coverart"]:
                 artwork = self.get_album_artwork(data['filename'], 48)
                 if artwork:
-                    notification = Notify.Notification.new (primary,secondary,None)
-                    notification.set_icon_from_pixbuf(artwork)
+                    self.notification.update(primary, secondary, None)
+                    self.notification.set_icon_from_pixbuf(artwork)
                 else:
-                    notification = Notify.Notification.new (primary,secondary,"audio-player")
+                    self.notification.update(primary, secondary, "audio-player")
             else:
-                notification = Notify.Notification.new (primary,secondary,None)
-            notification.show ()
+                self.notification.update(primary, secondary, None)
+            self.notification.show ()
 
     # Sound Menu Controls
     def _sound_menu_is_playing(self):
